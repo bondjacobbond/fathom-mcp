@@ -7,7 +7,7 @@ import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';
 
 const SERVER_URL = process.env.MCP_SERVER_URL || 'http://localhost:3000/api/mcp';
-const FATHOM_API_KEY = process.env.FATHOM_API_KEY || 'T375brsQd9WPEV8OPmv0GA.3ClGk7evagTvKiv34W-Vib1LLGPPThpX1U4P2htfLJ0';
+const FATHOM_API_KEY = process.env.FATHOM_API_KEY;
 
 async function testMcpServer() {
   console.log(`Testing MCP server at: ${SERVER_URL}`);
