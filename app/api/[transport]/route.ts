@@ -24,6 +24,10 @@ const handler = createMcpHandler(
         recorded_by: z.array(z.string().email()).optional().describe('Email addresses of users who recorded meetings'),
         teams: z.array(z.string()).optional().describe('Team names to filter by'),
       },
+      {
+        // Explicitly mark all parameters as optional
+        required: [],
+      },
       async (params, extra) => {
         try {
           // Get API key from auth token
@@ -153,6 +157,10 @@ const handler = createMcpHandler(
       {
         cursor: z.string().optional().describe('Cursor for pagination'),
       },
+      {
+        // Explicitly mark all parameters as optional
+        required: [],
+      },
       async ({ cursor }, extra) => {
         try {
           // Get API key from auth token
@@ -196,6 +204,10 @@ const handler = createMcpHandler(
       {
         team_id: z.string().min(1).describe('The ID of the team'),
         cursor: z.string().optional().describe('Cursor for pagination'),
+      },
+      {
+        // Only team_id is required
+        required: ['team_id'],
       },
       async ({ team_id, cursor }, extra) => {
         try {
