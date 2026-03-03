@@ -283,10 +283,9 @@ const verifyToken = async (
 ): Promise<AuthInfo | undefined> => {
   if (!bearerToken) return undefined;
 
-  // For Fathom AI, we'll treat the bearer token as the API key
-  // In a production environment, you might want to validate this against a database
-  // or use a more sophisticated token system
-  if (!bearerToken.startsWith('T') || bearerToken.length < 10) {
+  // For Fathom AI, we'll treat the bearer token as the API key.
+  // Fathom API keys vary in format - accept any non-empty token of reasonable length.
+  if (bearerToken.length < 10) {
     return undefined;
   }
 
